@@ -1,6 +1,6 @@
 var gulp = require('gulp');
-var autoprefixer = require('gulp-autoprefixer');
 var concat = require('gulp-concat');
+var autoprefixer = require('gulp-autoprefixer');
 var cssmin = require('gulp-minify-css');
 var rename = require("gulp-rename");
 var sass = require('gulp-sass');
@@ -32,8 +32,11 @@ gulp.task('scripts', function() {
 });
 
 gulp.task('bower', function() {
-  return bower('./bower_components')
-    .pipe(gulp.dest('./dist/js/lib/'))
+    return bower('./bower_components')
+        .pipe(plumber({
+            errorHandler: onError
+        }))
+        .pipe(gulp.dest('./src/lib/'))
 });
 
 gulp.task('styles', function() {
@@ -65,13 +68,20 @@ gulp.task('images', function() {
         .pipe(notify({ message: 'Images task complete' }));
 });
 
+gulp.task('fonts', function() {
+    return gulp.src('./src/fonts/*')
+        .pipe(plumber({
+            errorHandler: onError
+        }))
+        .pipe(gulp.dest('./dist/fonts'));
+});
 
 gulp.task('jade', function() {
     return gulp.src(['src/*.jade', '!./src/_*'])
         .pipe(plumber({
             errorHandler: onError
         }))
-        .pipe(jade({pretty:true, doctype:'HTML'}))
+        .pipe(jade({ pretty: true, doctype: 'HTML' }))
         .pipe(gulp.dest('dist'));
 });
 
@@ -95,4 +105,4 @@ gulp.task('webserver', function() {
         }));
 });
 
-gulp.task('default', ['bower', 'scripts', 'styles', 'jade', 'images', 'watch']);
+gulp.task('default', ['bower', 'scripts', 'fonts', 'styles', 'jade', 'images', 'watch']);
