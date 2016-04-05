@@ -1,0 +1,29 @@
+{
+  "name": "vz-bp",
+  "description": "boilerplate for websites using gulp and node",
+  "main": "./src/js/app.js",
+  "authors": [
+    "Lawrence Norton"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "gulp",
+    "node",
+    "boilerplate"
+  ],
+  "moduleType": [
+    "globals"
+  ],
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^2.2.2"
+  }
+}
