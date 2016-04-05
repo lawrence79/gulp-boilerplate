@@ -1,4 +1,5 @@
 var gulp = require('gulp');
+var autoprefixer = require('gulp-autoprefixer');
 var concat = require('gulp-concat');
 var cssmin = require('gulp-minify-css');
 var rename = require("gulp-rename");
@@ -41,6 +42,7 @@ gulp.task('styles', function() {
             errorHandler: onError
         }))
         .pipe(sass())
+        .pipe(autoprefixer())
         .pipe(gulp.dest('./dist/css/'))
         .pipe(cssmin())
         .pipe(rename({
@@ -75,7 +77,7 @@ gulp.task('jade', function() {
 
 gulp.task('watch', function() {
     gulp.watch('./src/js/*.js', ['scripts']);
-    gulp.watch('./src/sass/*.scss', ['styles']);
+    gulp.watch('./src/scss/*.scss', ['styles']);
     gulp.watch('./src/*.jade', ['jade']);
     gulp.watch('./src/images/**/*', ['images']);
     gulp.watch('./bower_components/**/*', ['bower']);
@@ -87,7 +89,7 @@ gulp.task('webserver', function() {
             errorHandler: onError
         }))
         .pipe(webserver({
-            port: "3000",
+            port: '3000',
             livereload: true,
             directoryListing: false
         }));
