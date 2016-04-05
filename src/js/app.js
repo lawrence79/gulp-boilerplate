@@ -1,3 +1,3 @@
 function helloWorld() {
-  console.log("Hello 3World!");
+  console.log("Hello from App!");
 }
