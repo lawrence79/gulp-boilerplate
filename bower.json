@@ -25,6 +25,7 @@
   ],
   "dependencies": {
     "jquery": "^2.2.2",
-    "susy": "^2.2.12"
+    "susy": "^2.2.12",
+    "animate.css": "^3.5.1"
   }
 }

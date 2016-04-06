@@ -1,9 +1,5 @@
 @import "../lib/susy/sass/susy";
 
-$susy: (
-  columns: 12,  // The number of columns in your grid
-  gutters: 1/4, // The size of a gutter in relation to a single column
-);
 
 @font-face {
     font-family: 'NeueHaasGroteskDisp75';
@@ -35,16 +31,27 @@ $susy: (
     font-weight: 400;
 }
 
-/* colors */
 
-$blue: rgb(40, 170, 220);
-
+$red: #CD040B;
+$teal: #82CEAC;
+$sky: #ABE0F9;
+$gold: #F8D362;
+$salmon: #F9B295;
+$primary-gray: #E4E5E3;
+$supporting-gray: #F6F6F6;
+$gray: #4B4B4B;
 
 $font-regular: 'NeueHaasGroteskDisp65', sans-serif;
 $font-bold: 'NeueHaasGroteskDisp75', sans-serif;
+$susy: ( columns: 12, container: 80em, container-position: center, gutters: 1/4, gutter-position: inside );
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
 
 html {
   font-size: 62.5%;
+  box-sizing: border-box;
 }
 
 body {
@@ -53,9 +60,10 @@ body {
 }
 
 .container {
-    @include container(80em);
+    @include container;
 }
 
 .content {
-    @include span(6 of 12);
+   @include span(10 of 12);
 }
+
