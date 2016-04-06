@@ -37,6 +37,7 @@ gulp.task('bower', function() {
             errorHandler: onError
         }))
         .pipe(gulp.dest('./src/lib/'))
+        .pipe(gulp.dest('./dist/lib'))
 });
 
 gulp.task('styles', function() {
@@ -93,7 +94,7 @@ gulp.task('watch', function() {
     gulp.watch('./bower_components/**/*', ['bower']);
 });
 
-gulp.task('webserver', function() {
+gulp.task('server', function() {
     gulp.src('./dist')
         .pipe(plumber({
             errorHandler: onError
