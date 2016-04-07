@@ -14,15 +14,15 @@ a, a:visited {
 
 
 .features {
-    @include span(6 of 12 last);
+    @include span(6 of 12);
 }
 
 .features-copy {
-    @include span(3 of 6);
+    @include span(4 of 6);
 }
 
 .features-list {
-    @include span(3 of 6 last);
+    @include span(2 of 6);
 }
 
 .features__ul {
