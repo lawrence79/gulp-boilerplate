@@ -1,5 +1,9 @@
 @import "prism";
 
+a, a:visited {
+  color: $jungle-mist;
+}
+
 .features-wrapper {
   padding-top: 25%;
 }
@@ -27,8 +31,4 @@
 
 .features__li {
     text-align: left;
-}
-
-.features__li > a {
-    color: $jungle-mist;
 }
