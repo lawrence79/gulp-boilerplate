@@ -1,43 +1,39 @@
 var gulp = require('gulp');
+var notify = require("gulp-notify");
+var changed = require('gulp-changed');
 var concat = require('gulp-concat');
+
 var autoprefixer = require('gulp-autoprefixer');
-var cssmin = require('gulp-minify-css');
 var rename = require("gulp-rename");
-var sass = require('gulp-sass');
 var uglify = require('gulp-uglify');
 var plumber = require('gulp-plumber');
-var changed = require('gulp-changed');
 var webserver = require('gulp-webserver');
 var imagemin = require('gulp-imagemin');
-var notify = require("gulp-notify");
+
 var bower = require('gulp-bower');
+var sass = require('gulp-sass');
 var jade = require('gulp-jade');
+var cssmin = require('gulp-minify-css');
+
+var browserify = require('browserify');
+var source = require('vinyl-source-stream');
+var streamify = require('gulp-streamify');
 
 var onError = function(err) {
     console.log(err);
 }
 
 gulp.task('scripts', function() {
-    return gulp.src('./src/js/**/*.js')
-        .pipe(plumber({
-            errorHandler: onError
-        }))
-        .pipe(concat('app.js'))
-        .pipe(gulp.dest('./dist/js/'))
-        .pipe(uglify())
-        .pipe(rename({
-            suffix: '.min'
-        }))
-        .pipe(gulp.dest('./dist/js/'));
-});
+  var bundleStream = browserify('./src/js/main.js').bundle()
 
-gulp.task('bower', function() {
-    return bower('./bower_components')
-        .pipe(plumber({
-            errorHandler: onError
-        }))
-        .pipe(gulp.dest('./src/lib/'))
-        .pipe(gulp.dest('./dist/lib'))
+  bundleStream
+    .pipe(source('main.js'))
+    .pipe(gulp.dest('./dist/js'))
+    .pipe(streamify(uglify()))
+    .pipe(rename({
+        suffix: '.min'
+    }))
+    .pipe(gulp.dest('./dist/js'));
 });
 
 gulp.task('styles', function() {
@@ -69,16 +65,16 @@ gulp.task('images', function() {
         .pipe(notify({ message: 'Images task complete' }));
 });
 
-gulp.task('fonts', function() {
-    return gulp.src('./src/fonts/*')
+gulp.task('js', function() {
+    return gulp.src(['./src/js/*.js', '!./src/js/main.js'])
         .pipe(plumber({
             errorHandler: onError
         }))
-        .pipe(gulp.dest('./dist/fonts'));
+        .pipe(gulp.dest('./dist/js'));
 });
 
 gulp.task('jade', function() {
-    return gulp.src(['src/*.jade', '!./src/_*'])
+    return gulp.src(['src/views/*.jade', '!./src/views/_*'])
         .pipe(plumber({
             errorHandler: onError
         }))
@@ -87,9 +83,9 @@ gulp.task('jade', function() {
 });
 
 gulp.task('watch', function() {
-    gulp.watch('./src/js/*.js', ['scripts']);
+    gulp.watch('./src/js/*.js', ['scripts', 'js']);
     gulp.watch('./src/scss/*.scss', ['styles']);
-    gulp.watch('./src/*.jade', ['jade']);
+    gulp.watch('./src/views/*.jade', ['jade']);
     gulp.watch('./src/images/**/*', ['images']);
     gulp.watch('./bower_components/**/*', ['bower']);
 });
@@ -106,4 +102,4 @@ gulp.task('server', function() {
         }));
 });
 
-gulp.task('default', ['bower', 'scripts', 'fonts', 'styles', 'jade', 'images', 'watch']);
+gulp.task('default', ['scripts', 'js', 'styles', 'jade', 'images', 'watch']);

@@ -1,68 +1,90 @@
-@import "../lib/susy/sass/susy";
+// imports
+@import "normalize";
+@import "../vendor/susy/sass/susy";
+@import "../vendor/breakpoint-sass/stylesheets/breakpoint";
 
-@font-face {
-    font-family: 'NeueHaasGroteskDisp75';
-    src: url("../fonts/NHaasGroteskDSStd-75Bd.eot");
-    /* IE9 Compat Modes */
-    src: url("../fonts/NHaasGroteskDSStd-75Bd.eot?#iefix") format("embedded-opentype"), url("../fonts/NHaasGroteskDSStd-75Bd.woff") format("woff"), url("../fonts/NHaasGroteskDSStd-75Bd.ttf") format("truetype"), url("../fonts/NHaasGroteskDSStd-75Bd.svg#d033eef77a461e8571ce594d6168a888") format("svg");
-    /* Legacy iOS */
-    font-style: normal;
-    font-weight: 400;
+// colors
+@import "colors";
+
+// mixins
+@mixin clearfix {
+  &:before, &:after {
+    content: " ";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
 }
 
-@font-face {
-    font-family: 'NeueHaasGroteskDisp65';
-    src: url("../fonts/NHaasGroteskDSStd-65Md.eot");
-    /* IE9 Compat Modes */
-    src: url("../fonts/NHaasGroteskDSStd-65Md.eot?#iefix") format("embedded-opentype"), url("../fonts/NHaasGroteskDSStd-65Md.woff") format("woff"), url("../fonts/NHaasGroteskDSStd-65Md.ttf") format("truetype"), url("../fonts/NHaasGroteskDSStd-65Md.svg#8cae22e77d75dc987716fb47bc633b42") format("svg");
-    /* Legacy iOS */
-    font-style: normal;
-    font-weight: 400;
+@mixin vertical-align($position: relative) {
+  position: $position;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
 }
 
-@font-face {
-    font-family: 'NeueHaasGroteskDisp55';
-    src: url("../fonts/NHaasGroteskDSStd-55Rg.eot");
-    /* IE9 Compat Modes */
-    src: url("../fonts/NHaasGroteskDSStd-55Rg.eot?#iefix") format("embedded-opentype"), url("../fonts/NHaasGroteskDSStd-55Rg.woff") format("woff"), url("../fonts/NHaasGroteskDSStd-55Rg.ttf") format("truetype"), url("../fonts/NHaasGroteskDSStd-55Rg.svg#802f1ab975b8b67acbe6aefa4e47fe12") format("svg");
-    /* Legacy iOS */
-    font-style: normal;
-    font-weight: 400;
-}
+// typography
+$font-regular: 'Raleway', sans-serif;
+$font-bold: 'Raleway', sans-serif;
 
+// grid settings
+$susy: (
+  columns: 12,
+  gutters: 1/4,
+  container: 64em,
+  global-box-sizing: border-box,
+  gutter-position: inside
+);
 
-$red: #CD040B;
-$teal: #82CEAC;
-$sky: #ABE0F9;
-$gold: #F8D362;
-$salmon: #F9B295;
-$primary-gray: #E4E5E3;
-$supporting-gray: #F6F6F6;
-$gray: #4B4B4B;
+$bp-medium: 32em;
+$bp-large: 60em;
+$bp-small: 16em;
 
-$font-regular: 'NeueHaasGroteskDisp65', sans-serif;
-$font-bold: 'NeueHaasGroteskDisp75', sans-serif;
-$susy: ( columns: 12, container: 80em, container-position: center, gutters: 1/4, gutter-position: inside );
+@include breakpoint-set('no query fallbacks', true);
+@include border-box-sizing;
 
-*, *:before, *:after {
-  box-sizing: inherit;
-}
+$font-color:  $jungle-mist-light;
+$background-color: $bunting-dark;
 
+// defaults
 html {
   font-size: 62.5%;
-  box-sizing: border-box;
 }
 
 body {
     font-family: $font-regular;
     font-size: 1.6rem;
+    line-height: 1.4;
+    text-rendering: optimizeLegibility;
+    background-color: $background-color;
+    color: $font-color;
+}
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+    vertical-align: middle;
+}
+
+::selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+.clearfix {
+    @include clearfix;
 }
 
 .container {
     @include container;
 }
 
-.content {
-   @include span(10 of 12);
-}
+
+// site styles
+@import 'demo';
 

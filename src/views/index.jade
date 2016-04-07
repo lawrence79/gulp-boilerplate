@@ -1,0 +1,43 @@
+extends ./_layout.jade
+
+block content
+  .container
+    .features-wrapper
+      .intro
+        object#box(type='image/svg+xml', data='images/box.svg')
+        h1 Static web boilerplate
+      .features
+          .features-copy
+            h2 Description:
+            p Opinionated stack for frontend development.
+            pre
+              code.language-jade
+                | bower install
+                | npm install
+                | gulp dev
+                | gulp server
+          .features-list
+            ul.features__ul
+                li.features__li
+                  h2 Includes:
+                li.features__li
+                  a(href="http://gulpjs.com/") Gulp
+                li.features__li
+                  a(href="http://bower.io/") Bower
+                li.features__li
+                  a(href="http://browserify.org/") Browserfy
+                li.features__li
+                  a(href="http://sass-lang.com/") Sass
+                li.features__li
+                  a(href="http://jade-lang.com/") Jade
+                li.features__li
+                  a(href="susydocs.oddbird.net") Susy 2
+                li.features__li
+                  a(href="http://breakpoint-sass.com/") Breakpoint
+                li.features__li
+                  a(href="https://jquery.com/") jQuery
+                li.features__li
+                  a(href="http://julian.com/research/velocity/") Velocity
+                li.features__li
+                  a(href="http://underscorejs.org/") Underscore
+
