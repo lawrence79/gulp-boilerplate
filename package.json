@@ -49,6 +49,7 @@
     "gulp-util": "^3.0.7",
     "gulp-webserver": "^0.8.7",
     "jshint": "^2.9.1",
+    "require-dir": "^0.3.0",
     "vinyl-source-stream": "^1.1.0"
   },
   "dependencies": {
