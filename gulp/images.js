@@ -4,19 +4,30 @@ var imagemin = require('gulp-imagemin');
 var changed = require('gulp-changed');
 var notify = require('gulp-notify');
 
-var onError = function(err) {
-    console.log(err);
-};
+
 gulp.task('images', function() {
+    var onError = function(err) {
+        notify.onError({
+            title: "Gulp",
+            subtitle: "Failure!",
+            message: "Error: <%= error.message %>",
+            sound: "Beep"
+        })(err);
+
+        this.emit('end');
+    };
     var imgSrc = './src/images/**/*',
         imgDst = './dist/images';
 
     return gulp.src(imgSrc)
-        .pipe(plumber({
-            errorHandler: onError
-        }))
+        .pipe(plumber({ errorHandler: notify.onError("Error: <%= error.message %>") }))
         .pipe(changed(imgDst))
         .pipe(imagemin())
         .pipe(gulp.dest(imgDst))
-        .pipe(notify({ message: 'Images task complete' }));
+        .pipe(notify({ // Add gulpif here
+            title: 'Gulp',
+            subtitle: 'success',
+            message: 'Images task',
+            sound: "Pop"
+        }));
 });
