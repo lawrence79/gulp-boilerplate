@@ -31,10 +31,10 @@ gulp.task('scripts', function() {
             suffix: '.min'
         }))
         .pipe(gulp.dest('./dist/js'))
-        .pipe(notify({ // Add gulpif here
+        .pipe(notify({
             title: 'Gulp',
             subtitle: 'success',
-            message: 'Server started',
+            message: 'Scripts task',
             sound: "Pop"
         }));
 });
