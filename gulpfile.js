@@ -103,3 +103,5 @@ gulp.task('server', function() {
 });
 
 gulp.task('default', ['scripts', 'js', 'styles', 'jade', 'images', 'watch']);
+gulp.task('build', ['scripts', 'js', 'styles', 'jade', 'images']);
+gulp.task('serve', ['watch', 'server']);
