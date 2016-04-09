@@ -2,9 +2,9 @@ var gulp = require('gulp');
 var plumber = require('gulp-plumber');
 var webserver = require('gulp-webserver');
 var notify = require('gulp-notify');
+var debug = require('gulp-debug');
 
-
-gulp.task('server', function() {
+gulp.task('webserver', function() {
 
     var onError = function(err) {
         notify.onError({
@@ -18,6 +18,7 @@ gulp.task('server', function() {
     };
 
     gulp.src('./dist')
+        .pipe(debug({title: 'server:'}))
         .pipe(plumber({ errorHandler: onError }))
         .pipe(webserver({
             port: '3000',

@@ -1,5 +1,5 @@
 var gulp = require('gulp');
 
-gulp.task('default', ['jade', 'scripts', 'images', 'scss', 'files', 'watch']);
-gulp.task('dev', ['watch']);
-gulp.task ('serve', ['server']);
+gulp.task('default', ['jade', 'scripts', 'images', 'scss', 'files']);
+gulp.task('build-dev', ['jade', 'scripts', 'images', 'scss', 'files']);
+gulp.task ('server', ['webserver', 'watch']);
