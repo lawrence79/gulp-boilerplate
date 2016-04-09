@@ -1,7 +1,8 @@
 @import "prism";
 
 a, a:visited {
-  color: $jungle-mist;
+  color: $chambray-light;
+  text-decoration: none;
 }
 
 .features-wrapper {
@@ -10,6 +11,7 @@ a, a:visited {
 
 .intro {
   @include span(6 of 12);
+  text-align: center;
 }
 
 
@@ -18,17 +20,27 @@ a, a:visited {
 }
 
 .features-copy {
-    @include span(4 of 6);
+    @include span(6 of 6);
+    @include clearfix;
 }
 
 .features-list {
-    @include span(2 of 6);
+    @include span(6 of 6);
+    @include clearfix;
 }
 
 .features__ul {
-    list-style: none;
+    // list-style: none;
+    padding-left: 0;
 }
 
 .features__li {
     text-align: left;
+    margin-bottom: 2rem;
+    list-style-position: inside;
+}
+
+.features__li:first-child {
+   list-style-type: none;
+   margin-left: 0;
 }
