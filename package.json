@@ -1,5 +1,6 @@
 {
-  "name": "gulp-boilerplate",
+  "name": "web-boilerplate",
+  "private": "true",
   "version": "1.1.0",
   "description": "boilerplate for websites using gulp and node",
   "main": "server.js",
