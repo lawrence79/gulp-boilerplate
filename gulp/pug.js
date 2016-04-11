@@ -1,11 +1,11 @@
 var gulp = require('gulp');
 var plumber = require('gulp-plumber');
-var jade = require('gulp-jade');
+var pug = require('gulp-pug');
 var notify = require('gulp-notify');
 
 
 
-gulp.task('jade', function() {
+gulp.task('pug', function() {
     var onError = function(err) {
         notify.onError({
             title: "Gulp",
@@ -16,14 +16,14 @@ gulp.task('jade', function() {
 
         this.emit('end');
     };
-    return gulp.src(['src/views/*.jade', '!./src/views/_*'])
+    return gulp.src(['src/views/*.pug', '!./src/views/_*'])
         .pipe(plumber({ errorHandler: notify.onError("Error: <%= error.message %>") }))
-        .pipe(jade({ pretty: true, doctype: 'HTML' }))
+        .pipe(pug({ pretty: true}))
         .pipe(gulp.dest('dist'))
         .pipe(notify({ // Add gulpif here
             title: 'Gulp',
             subtitle: 'success',
-            message: 'Jade task',
+            message: 'Pug task',
             sound: "Pop"
         }));
 });

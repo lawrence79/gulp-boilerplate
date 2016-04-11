@@ -30,11 +30,11 @@ gulp.task('scripts', function() {
         .pipe(rename({
             suffix: '.min'
         }))
-        .pipe(gulp.dest('./dist/js'))
         .pipe(notify({
             title: 'Gulp',
             subtitle: 'success',
             message: 'Scripts task',
             sound: "Pop"
-        }));
+        }))
+        .pipe(gulp.dest('./dist/js'));
 });
