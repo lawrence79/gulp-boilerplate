@@ -5,12 +5,10 @@
   "description": "boilerplate for websites using gulp and node",
   "main": "server.js",
   "browser": {
-    "jquery": "./src/vendor/jquery/dist/jquery.js",
-    "underscore": "./src/vendor/underscore/underscore-min.js"
+    "jquery": "./src/vendor/jquery/dist/jquery.js"
   },
   "browserify-shim": {
-    "jquery": "$",
-    "underscore": "_"
+    "jquery": "$"
   },
   "browserify": {
     "transform": [
@@ -51,8 +49,9 @@
     "gulp-util": "^3.0.7",
     "gulp-webserver": "^0.8.7",
     "jshint": "^2.9.1",
-    "pug": "*",
+    "pug": "^2.0.0-alpha3",
     "require-dir": "^0.3.0",
+    "underscore": "^1.8.3",
     "vinyl-source-stream": "^1.1.0"
   },
   "dependencies": {

@@ -1,5 +1,6 @@
 var _ = require('underscore');
 var $ = require('jquery')
+
 var vivus = require('vivus');
 var Grapnel = require('grapnel');
 var catchLinks = require('catch-links');

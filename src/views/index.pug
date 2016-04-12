@@ -1,42 +1,39 @@
 extends ./_layout.pug
 
 block content
-  .container
-    .features-wrapper
-      .intro
-        object#box(type='image/svg+xml', data='images/box.svg')
-        h1 Static web boilerplate
-        h3 Opinionated stack for frontend development
+  .features-wrapper
+    .intro
+      object#box(type='image/svg+xml', data='images/box.svg')
+      h1 Static web boilerplate
+      h3 Opinionated stack for frontend development
 
-      .features
-          .features-list
-            ul.features__ul
-                li.features__li
-                  h2 Highlights:
-                li.features__li
-                  | Browserfy &amp; Bower
-                li.features__li
-                  | Sass with Susy 2, Breakpoint &amp; Prism
-                li.features__li
-                  | Pug (jade) Templates
-                li.features__li
-                  | Animation with Vivus, Velocity &amp; Animate.css
-                li.features__li
-                  | Client side routing with Grapnel.js
-                li.features__li
-                  | Simple npm &amp; gulp workflow
-          .features-copy
-            h2 Installation:
-            pre
-              code.language-jade
-                | git clone https://github.com/lawrence79/static-web-boilerplate.git
-                | &nbsp;
-                | bower install
-                | npm install
-                | gulp build-dev
-                | gulp server
-            p
-              | ...or get it on&nbsp;
-              a(href="https://github.com/lawrence79/static-web-boilerplate") Github
+    .features
+        .features-list
+          ul.features__ul
+              li.features__li
+                h2 Highlights:
+              li.features__li
+                | Browserfy &amp; Bower
+              li.features__li
+                | Sass with Susy 2, Breakpoint &amp; Prism
+              li.features__li
+                | Pug (jade) Templates
+              li.features__li
+                | Animation with Vivus, Velocity &amp; Animate.css
+              li.features__li
+                | Client side routing with Grapnel.js
+              li.features__li
+                | Simple npm &amp; gulp workflow
+        .features-copy
+          h2 Installation:
+          pre
+            code.language-jade
+              | bower install
+              | npm install
+              | gulp build-dev
+              | gulp server
+          p
+            | ...or get it on&nbsp;
+            a(href="https://github.com/lawrence79/static-web-boilerplate") Github
 
 

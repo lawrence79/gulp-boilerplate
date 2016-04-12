@@ -5,25 +5,8 @@
 
 // colors
 @import "colors";
+@import "mixins";
 
-// mixins
-@mixin clearfix {
-  &:before, &:after {
-    content: " ";
-    display: table;
-  }
-  &:after {
-    clear: both;
-  }
-}
-
-@mixin vertical-align($position: relative) {
-  position: $position;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-}
 
 // typography
 $font-regular: 'Raleway', sans-serif;
@@ -33,20 +16,23 @@ $font-bold: 'Raleway', sans-serif;
 $susy: (
   columns: 12,
   gutters: 1/4,
-  container: 64em,
+  container: 88em,
   global-box-sizing: border-box,
   gutter-position: inside
 );
 
-$bp-medium: 32em;
-$bp-large: 60em;
-$bp-small: 16em;
+// vars
+$bp-full: 88em;
+$bp-medium: 64em;
+$bp-small: 32em;
+$bp-xsmall: 16em;
+
+$font-color:  $jungle-mist-light;
+$background-color: $bunting-dark;
 
 @include breakpoint-set('no query fallbacks', true);
 @include border-box-sizing;
 
-$font-color:  $jungle-mist-light;
-$background-color: $bunting-dark;
 
 // defaults
 html {

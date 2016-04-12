@@ -1,5 +1,6 @@
 @import "prism";
 
+
 a, a:visited {
   color: $chambray-light;
   text-decoration: none;
@@ -10,27 +11,45 @@ a, a:visited {
 }
 
 .intro {
-  @include span(6 of 12);
+  @include span(12 of 12);
   text-align: center;
+  @include susy-breakpoint($bp-medium) {
+    @include span(6 of 12);
+  }
 }
 
 
 .features {
-    @include span(6 of 12);
-}
+    @include span(12 of 12);
+    @include susy-breakpoint($bp-medium) {
+      @include span(6 of 12);
+    }
+  }
 
 .features-copy {
-    @include span(6 of 6);
+    @include span(12 of 12);
+    @include susy-breakpoint($bp-small) {
+      @include span(6 of 12);
+    }
+    @include susy-breakpoint($bp-medium) {
+      @include span(3 of 6);
+    }
+
     @include clearfix;
 }
 
 .features-list {
-    @include span(6 of 6);
+    @include span(12 of 12);
+    @include susy-breakpoint($bp-small) {
+      @include span(6 of 12);
+    }
+    @include susy-breakpoint($bp-medium) {
+      @include span(3 of 6);
+    }
     @include clearfix;
 }
 
 .features__ul {
-    // list-style: none;
     padding-left: 0;
 }
 
