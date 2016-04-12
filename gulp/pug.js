@@ -8,10 +8,7 @@ gulp.task('pug', function() {
     return gulp.src(['src/views/*.pug', '!./src/views/_*'])
         .pipe(plumber())
         .pipe(pug({
-            pretty: true,
-            data: {
-                name : 'stephen'
-            }
+            pretty: true
         }))
         .pipe(gulp.dest('dist'));
 });
