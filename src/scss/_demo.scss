@@ -34,7 +34,6 @@ a, a:visited {
     @include susy-breakpoint($bp-medium) {
       @include span(3 of 6);
     }
-
     @include clearfix;
 }
 
