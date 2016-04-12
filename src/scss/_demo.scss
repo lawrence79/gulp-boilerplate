@@ -10,6 +10,15 @@ a, a:visited {
   padding-top: 15%;
 }
 
+.hero {
+
+  @include span(12 of 12);
+  background-color: $chambray;
+}
+.content {
+  @include span(12 of 12);
+}
+
 .intro {
   @include span(12 of 12);
   text-align: center;

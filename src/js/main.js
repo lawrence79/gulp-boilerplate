@@ -1,5 +1,6 @@
 var _ = require('underscore');
 var $ = require('jquery')
+// optional
 var page = require('page');
 var vivus = require('vivus');
 
@@ -8,36 +9,22 @@ var app = app || {};
 app = (function() {
     'use strict';
 
-    var _cache = {},
+    var _cache = {
+        box: $('#box')
+    },
 
     _init = function() {
-        new vivus('box', { duration: 300, type: 'oneByOne' });
-        _initRouter();
+        if(_cache.box.length > 0) {
+            new vivus('box', { duration: 300, type: 'oneByOne' });
+        }
         _addEvents();
     },
 
     _addEvents = function() {
-        $('.example-link').click(function(e) {
-            e.preventDefault();
-        });
+
     },
 
     _initRouter = function() {
-        page('/', _index);
-        page('*', _notfound);
-        page();
-    },
-
-    _notfound = function() {
-        console.log('not found');
-    },
-
-    _example = function() {
-        console.log('on example page');
-    },
-
-    _index = function() {
-        console.log('router loaded');
     };
 
     return {
