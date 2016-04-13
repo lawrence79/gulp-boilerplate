@@ -26,6 +26,7 @@
   "author": "Lawrence Norton",
   "license": "MIT",
   "devDependencies": {
+    "jshint": "^2.9.1",
     "browserify": "^13.0.0",
     "browserify-shim": "^3.8.12",
     "gulp": "^3.8.10",
@@ -48,19 +49,9 @@
     "gulp-uglify": "^1.5.3",
     "gulp-util": "^3.0.7",
     "gulp-webserver": "^0.8.7",
-    "jshint": "^2.9.1",
     "pug": "^2.0.0-alpha3",
     "require-dir": "^0.3.0",
     "underscore": "^1.8.3",
     "vinyl-source-stream": "^1.1.0"
-  },
-  "dependencies": {
-    "catch-links": "^2.0.0",
-    "express": "^4.10.7",
-    "express-handlebars": "^1.1.0",
-    "grapnel": "^0.6.3",
-    "page": "^1.7.1",
-    "path": "^0.11.14",
-    "vivus": "^0.3.0"
   }
 }
